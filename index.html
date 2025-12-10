@@ -20,7 +20,7 @@
     <header id="main-header">
         <div class="container header-content">
             <div class="logo">
-                <img src="img/Logo.png" alt="Logo Malí průzkumníci" class="logo-img">
+                <img src="img/Logo8.png" alt="Logo Malí průzkumníci" class="logo-img">
                 <span class="logo-text">Malí průzkumníci</span>
             </div>
             <nav id="main-nav">
@@ -117,8 +117,9 @@
                         <div class="lecturer-img-wrapper" id="img-friend">
                             <!-- Image will be inserted via CSS or img tag -->
                         </div>
-                        <h3>Kolegyně</h3>
-                        <p>Spoluzakladatelka. Maminka ročního syna, absolvovala Montessori kurz a má praxi v jesličkách.
+                        <h3>Eva Žáková</h3>
+                        <p>Lektorka a zakladatelka. Maminka ročního syna, absolvovala Montessori kurz a má praxi v
+                            jesličkách.
                         </p>
                     </div>
                 </div>
@@ -133,22 +134,51 @@
 
                 <div class="principles-grid">
                     <div class="principle-item">
-                        <div class="icon">🌱</div>
+                        <div class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                stroke-linejoin="round" class="feather feather-home">
+                                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                                <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                            </svg>
+                        </div>
                         <h3>Klidné prostředí</h3>
                         <p>Řád a harmonie pro soustředění.</p>
                     </div>
                     <div class="principle-item">
-                        <div class="icon">🦋</div>
+                        <div class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                stroke-linejoin="round" class="feather feather-compass">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon>
+                            </svg>
+                        </div>
                         <h3>Svobodná volba</h3>
                         <p>Respekt k individualitě dítěte.</p>
                     </div>
                     <div class="principle-item">
-                        <div class="icon">🧩</div>
+                        <div class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                stroke-linejoin="round" class="feather feather-smile">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <path d="M8 14s1.5 2 4 2 4-2 4-2"></path>
+                                <line x1="9" y1="9" x2="9.01" y2="9"></line>
+                                <line x1="15" y1="9" x2="15.01" y2="9"></line>
+                            </svg>
+                        </div>
                         <h3>Samostatnost</h3>
                         <p>"Pomoz mi, abych to dokázal sám."</p>
                     </div>
                     <div class="principle-item">
-                        <div class="icon">💧</div>
+                        <div class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                stroke-linejoin="round" class="feather feather-droplet">
+                                <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path>
+                            </svg>
+                        </div>
                         <h3>Praktický život</h3>
                         <p>Reálné činnosti a dovednosti.</p>
                     </div>
@@ -207,7 +237,7 @@
                 <p class="form-intro">Kapacita je omezena na 9 dětí. Místo je závazně rezervováno po úhradě kurzovného.
                 </p>
 
-                <form id="registration-form" class="registration-form">
+                <form id="registration-form" class="registration-form" autocomplete="off">
                     <div class="form-group">
                         <label for="parentName">Jméno a příjmení rodiče <span class="required-star">*</span></label>
                         <input type="text" id="parentName" name="parentName" required>
@@ -226,11 +256,12 @@
                     <div class="form-row">
                         <div class="form-group">
                             <label for="email">E-mail <span class="required-star">*</span></label>
-                            <input type="email" id="email" name="email" required>
+                            <input type="email" id="email" name="email" value="@" required>
                         </div>
                         <div class="form-group">
                             <label for="phone">Telefon <span class="required-star">*</span></label>
-                            <input type="tel" id="phone" name="phone" required>
+                            <input type="tel" id="phone" name="phone" required
+                                pattern="^(\+420|00420)? ?[0-9]{3} ?[0-9]{3} ?[0-9]{3}$">
                         </div>
                     </div>
 

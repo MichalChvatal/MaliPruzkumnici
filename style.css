@@ -317,6 +317,7 @@ ul {
 .principle-item .icon {
     font-size: 3rem;
     margin-bottom: 15px;
+    color: var(--primary-color);
 }
 
 /* Info Section */

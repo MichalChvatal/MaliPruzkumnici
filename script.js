@@ -20,6 +20,41 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // Custom Czech Validation Messages
+    const inputs = document.querySelectorAll('input[required]');
+
+    // Function to check validity and set Czech message immediately
+    const validate = (input) => {
+        // First reset validty to allow re-checking against native constraints
+        input.setCustomValidity('');
+
+        // If it's invalid according to browser (type, pattern, required), apply our Czech message
+        if (input.validity.valueMissing) {
+            input.setCustomValidity('Toto pole je povinné.');
+        } else if (input.validity.typeMismatch) {
+            if (input.type === 'email') {
+                input.setCustomValidity('Zadejte prosím platný e-mail (např. jmeno@email.cz).');
+            } else {
+                input.setCustomValidity('Zadejte prosím platnou hodnotu.');
+            }
+        } else if (input.validity.patternMismatch) {
+            if (input.type === 'tel') {
+                input.setCustomValidity('Zadejte prosím telefon ve formátu 123 456 789 nebo +420 123 456 789.');
+            } else {
+                input.setCustomValidity('Zadejte prosím hodnotu ve správném formátu.');
+            }
+        }
+    };
+
+    inputs.forEach(input => {
+        // Check on invalid (submit attempt)
+        input.addEventListener('invalid', () => validate(input));
+
+        // CRITICAL: Check on every keystroke. This prevents the browser from reverting 
+        // to English messages when custom validity is cleared.
+        input.addEventListener('input', () => validate(input));
+    });
+
     // Form Submission Handling
     const form = document.querySelector('#registration-form');
 
