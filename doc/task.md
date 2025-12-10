@@ -1,0 +1,31 @@
+# Task: Malí průzkumníci Website
+
+- [x] Initialize Project Structure <!-- id: 0 -->
+    - [x] Create/Confirm index.html <!-- id: 1 -->
+    - [x] Create style.css <!-- id: 2 -->
+    - [x] Create script.js <!-- id: 3 -->
+- [x] Design System & Assets <!-- id: 4 -->
+    - [x] Define Color Palette (Primary: #c0a99d) <!-- id: 5 -->
+    - [x] Generate/Gather Images (Hero generated, fallback for others) <!-- id: 6 -->
+- [x] Implementation - Content Sections <!-- id: 7 -->
+    - [x] Header & Navigation <!-- id: 8 -->
+    - [x] Hero Section (Motto, Introduction) <!-- id: 9 -->
+    - [x] About Us (Lecturers) <!-- id: 10 -->
+    - [x] Philosophy & Montessori Principles <!-- id: 11 -->
+    - [x] Course Info (Time, Place, Price, Details) <!-- id: 12 -->
+    - [x] Gallery Section <!-- id: 13 -->
+    - [x] FAQ Section <!-- id: 14 -->
+- [x] Implementation - Registration Form <!-- id: 15 -->
+    - [x] Build Form HTML (Parent/Child details, Consents) <!-- id: 16 -->
+    - [x] Implement Validation & Logic (Capacity info, Payment info notices) <!-- id: 17 -->
+    - [x] Setup Google Sheets/Email submission logic (Guide created: google_sheets_setup.md) <!-- id: 18 -->
+- [x] Implementation - Styles & Responsiveness <!-- id: 19 -->
+    - [x] Apply Pastel Theme <!-- id: 20 -->
+    - [x] Ensure Mobile Responsiveness <!-- id: 21 -->
+    - [x] Add Micro-interactions/Animations <!-- id: 22 -->
+    - [x] Implement Video Background (Ready for video.mp4) <!-- id: 28 -->
+- [x] SEO & Final Polish <!-- id: 23 -->
+    - [x] Meta tags, Title, Description <!-- id: 24 -->
+    - [x] Verify accessibility <!-- id: 25 -->
+- [x] Documentation <!-- id: 26 -->
+    - [x] Create Walkthrough <!-- id: 27 -->
