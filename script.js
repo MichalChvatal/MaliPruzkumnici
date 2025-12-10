@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     // CONFIGURATION: Paste your Google Apps Script Web App URL here
     // See google_sheets_setup.md for instructions
-    const GOOGLE_SCRIPT_URL = '';
+    const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzrJklS4pGej9OStSgzgaM9AZkd5IsCGv4zNFgfGZvIGgu31GRmXfJIEmRGEiLwsdwA/exec';
 
     // Mobile Navigation Toggle
     const toggleBtn = document.querySelector('.mobile-menu-toggle');
