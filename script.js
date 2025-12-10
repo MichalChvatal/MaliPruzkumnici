@@ -61,6 +61,15 @@ document.addEventListener('DOMContentLoaded', () => {
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
 
+        // Manual validation trigger because 'novalidate' is on
+        // This ensures the hover tooltips are gone, but we still validate on submit
+        inputs.forEach(input => validate(input));
+
+        if (!form.checkValidity()) {
+            form.reportValidity(); // Shows our Czech bubbles now
+            return;
+        }
+
         const btn = form.querySelector('.btn-submit');
         const originalText = btn.textContent;
         btn.textContent = 'Odesílám...';
