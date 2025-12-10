@@ -111,6 +111,7 @@ ul {
     object-fit: cover;
     /* Crop if not square source */
     border-radius: 50%;
+    border: 1px solid var(--primary-color);
     /* Circle shape */
 }
 
