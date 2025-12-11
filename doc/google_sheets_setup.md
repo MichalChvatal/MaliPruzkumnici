@@ -15,6 +15,7 @@ Aby se přihlášky z webu automaticky ukládaly do Google Tabulky a přišel v�
    - `gdpr`
    - `photos`
    - `responsibility`
+   - `errors`
 
 ## 2. Vytvoření Skriptu
 1. V téže tabulce klikněte v horním menu na **Rozšíření** > **Apps Script**.
@@ -30,45 +31,77 @@ Aby se přihlášky z webu automaticky ukládaly do Google Tabulky a přišel v�
 const EMAIL_RECIPIENTS = "vas.email@example.com, kamaradky.email@example.com";
 
 function doPost(e) {
+  var validationErrors = [];
+  var data = {};
+  
   try {
-    const data = JSON.parse(e.postData.contents);
+    data = JSON.parse(e.postData.contents);
+    
+    // Validace dat
+    if (!data.parentName || data.parentName.trim() === "") validationErrors.push("Chybí jméno rodiče");
+    if (!data.childName || data.childName.trim() === "") validationErrors.push("Chybí jméno dítěte");
+    if (!data.email || !data.email.includes("@")) validationErrors.push("Neplatný nebo chybějící email");
+    if (!data.phone || data.phone.trim() === "") validationErrors.push("Chybí telefon");
+
+  } catch (error) {
+    validationErrors.push("Chyba při zpracování dat: " + error.toString());
+  }
+
+  // Uložení dat do tabulky (vždy, i s chybami)
+  try {
     const sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
     
-    // Uložení dat do tabulky
     sheet.appendRow([
       new Date(),
-      data.parentName,
-      data.childName,
-      data.childDob,
-      data.email,
-      data.phone,
+      data.parentName || "",
+      data.childName || "",
+      data.childDob || "",
+      data.email || "",
+      data.phone || "",
       data.gdpr ? "ANO" : "NE",
       data.photos ? "ANO" : "NE",
-      data.responsibility ? "ANO" : "NE"
+      data.responsibility ? "ANO" : "NE",
+      validationErrors.join("; ") // Sloupec pro chyby
     ]);
+  } catch (sheetError) {
+    // Pokud selže zápis do tabulky, je to kritické -> vrátíme error
+    return ContentService.createTextOutput(JSON.stringify({"result":"error", "error": "Kritická chyba: Nepodařilo se uložit data do tabulky."}))
+      .setMimeType(ContentService.MimeType.JSON);
+  }
 
-    // Odeslání e-mailu
+  // Pokud nastaly validační chyby, vrátíme error uživateli a neodesíláme email adminovi (nebo dle preference)
+  // Zde volím variantu: vrátit chybu frontend aplikaci, aby uživatel opravil údaje.
+  if (validationErrors.length > 0) {
+    return ContentService.createTextOutput(JSON.stringify({
+      "result": "error", 
+      "error": "Zkontrolujte prosím údaje:\n" + validationErrors.join("\n")
+    })).setMimeType(ContentService.MimeType.JSON);
+  }
+
+  // Odeslání e-mailu adminovi (pouze pokud je vše OK)
+  try {
     const subject = "Nová přihláška: Malí průzkumníci - " + data.childName;
     const body = `
-      Nová přihláška dorazila!
+      Nová platná přihláška!
       --------------------------------
       Rodič: ${data.parentName}
       Dítě: ${data.childName} (${data.childDob})
       Email: ${data.email}
       Tel: ${data.phone}
       
-      Zkontrolujte Google Tabulku pro více detailů.
+      Zkontrolujte Google Tabulku.
     `;
     
-    MailApp.sendEmail(EMAIL_RECIPIENTS, subject, body);
-    
-    return ContentService.createTextOutput(JSON.stringify({"result":"success"}))
-      .setMimeType(ContentService.MimeType.JSON);
-      
-  } catch (error) {
-    return ContentService.createTextOutput(JSON.stringify({"result":"error", "error": error.toString()}))
-      .setMimeType(ContentService.MimeType.JSON);
+    if (EMAIL_RECIPIENTS) {
+      MailApp.sendEmail(EMAIL_RECIPIENTS, subject, body);
+    }
+  } catch (emailError) {
+    // Email selhal, ale data jsou v tabulce. Vracíme success s varováním v consoli (frontend to neuvidí v result:success, ale to nevadí)
+    // Můžeme vrátit success, protože přihláška je uložená.
   }
+  
+  return ContentService.createTextOutput(JSON.stringify({"result":"success"}))
+    .setMimeType(ContentService.MimeType.JSON);
 }
 ```
 

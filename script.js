@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     // CONFIGURATION: Paste your Google Apps Script Web App URL here
     // See google_sheets_setup.md for instructions
-    const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxqEJBafTkNQVNCvD9kAa8Jfuv87BAuk6w3WfMRxWSDjy4dJH41T7gqAIltZM9AhXVX/exec';
+    const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxBNB-8yWpItznC_d2wQNQHmJW5mR38W3_Luu6sKT73IE7g9XOmg2ax8KkQmeYH-AxA/exec';
 
     // Mobile Navigation Toggle
     const toggleBtn = document.querySelector('.mobile-menu-toggle');
@@ -94,17 +94,26 @@ document.addEventListener('DOMContentLoaded', () => {
                 console.log("Form Data Payload:", data);
             } else {
                 // Real submission
-                // We use no-cors mode or text/plain to avoid CORS preflight complexity with simple GAS web apps
-                await fetch(GOOGLE_SCRIPT_URL, {
+                // We transmit as text/plain to avoid CORS preflight, but we MUST use default CORS mode (not no-cors)
+                // to read the response. Google Apps Script handles CORS automatically.
+                const response = await fetch(GOOGLE_SCRIPT_URL, {
                     method: 'POST',
                     body: JSON.stringify(data),
-                    mode: 'no-cors',
-                    headers: { 'Content-Type': 'text/plain' }
+                    headers: { 'Content-Type': 'text/plain;charset=utf-8' }
                 });
-                alert("Přihláška byla úspěšně odeslána! Brzy vás budeme kontaktovat.");
+
+                const result = await response.json();
+
+                if (result.result === 'success') {
+                    alert("Přihláška byla úspěšně odeslána! Brzy vás budeme kontaktovat.");
+                    form.reset();
+                } else {
+                    // Server returned an error (e.g. validation)
+                    alert("Chyba při odesílání: " + (result.error || "Neznámá chyba"));
+                }
             }
 
-            form.reset();
+            // form.reset() is called inside success block now
         } catch (error) {
             console.error('Error:', error);
             alert("Došlo k chybě při odesílání. Zkuste to prosím znovu nebo nás kontaktujte e-mailem.");
