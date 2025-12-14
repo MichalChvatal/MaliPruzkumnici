@@ -105,18 +105,25 @@ document.addEventListener('DOMContentLoaded', () => {
                 const result = await response.json();
 
                 if (result.result === 'success') {
-                    alert("Přihláška byla úspěšně odeslána! Brzy vás budeme kontaktovat.");
+                    // Show custom success modal
+                    document.getElementById('successModal').style.display = 'flex';
                     form.reset();
                 } else {
                     // Server returned an error (e.g. validation)
-                    alert("Chyba při odesílání: " + (result.error || "Neznámá chyba"));
+                    const modal = document.getElementById('successModal');
+                    document.getElementById('successModalTitle').textContent = 'Chyba';
+                    document.getElementById('successModalMessage').textContent = 'Došlo k chybě při odesílání. Zkuste to prosím znovu nebo nás kontaktujte e-mailem.';
+                    modal.style.display = 'flex';
                 }
             }
 
             // form.reset() is called inside success block now
         } catch (error) {
             console.error('Error:', error);
-            alert("Došlo k chybě při odesílání. Zkuste to prosím znovu nebo nás kontaktujte e-mailem.");
+            const modal = document.getElementById('successModal');
+            document.getElementById('successModalTitle').textContent = 'Chyba';
+            document.getElementById('successModalMessage').textContent = 'Došlo k chybě při odesílání. Zkuste to prosím znovu nebo nás kontaktujte e-mailem.';
+            modal.style.display = 'flex';
         } finally {
             btn.textContent = originalText;
             btn.disabled = false;
