@@ -61,6 +61,7 @@ function doPost(e) {
       data.gdpr ? "ANO" : "NE",
       data.photos ? "ANO" : "NE",
       data.responsibility ? "ANO" : "NE",
+      data.referenceText || "",
       validationErrors.join("; ") // Sloupec pro chyby
     ]);
   } catch (sheetError) {
@@ -88,6 +89,8 @@ function doPost(e) {
       Dítě: ${data.childName} (${data.childDob})
       Email: ${data.email}
       Tel: ${data.phone}
+
+      Dozvěděli se z: ${data.referenceText}
       
       Zkontrolujte Google Tabulku.
     `;
