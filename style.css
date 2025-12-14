@@ -726,3 +726,51 @@ footer {
         margin-bottom: 2px;
     }
 }
+
+/* Partners Section */
+.partners-section {
+    padding: 0 0 60px 0; /* Pouze spodní odsazení před patičkou */
+    margin-top: -20px;   /* Lehké přitažení k předchozí sekci */
+}
+
+.partners-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    opacity: 0.9;
+}
+
+.partners-text {
+    font-family: var(--font-heading); /* Font Outfit - ladí s nadpisy */
+    font-size: 1.5rem;
+    color: var(--primary-dark);       /* Tmavší hnědá, ladí s paletou webu */
+    font-weight: 500;                 /* Střední tloušťka písma */
+}
+
+.partners-content a {
+    display: flex;
+    align-items: center;
+    transition: transform 0.3s ease;
+}
+
+.partners-content a:hover {
+    transform: scale(1.05);
+}
+
+.partner-logo {
+    height: 55px; /* Decentní velikost loga */
+    width: auto;
+}
+
+@media (max-width: 768px) {
+    .partners-content {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .partners-text {
+        font-size: 1.6rem;
+    }
+}
