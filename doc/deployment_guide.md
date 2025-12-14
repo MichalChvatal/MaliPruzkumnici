@@ -53,14 +53,14 @@ Toto je ta "magická" část. Jakmile máte propojeno:
 1.  **Formulář**: Zkuste odeslat testovací přihlášku. Měla by se objevit ve vaší Google Tabulce.
 2.  **Odkazy**: Zkontrolujte, zda fungují odkazy v menu a patičce.
 
-## 6. Vlastní doména (např. malipruzkumnici.cz)
+## 6. Vlastní doména (např. krouzekmalipruzkumnici.cz)
 
 Pokud chcete profesionální adresu, postupujte takto:
 
 1.  **Kupte si doménu**: Doporučuji české registrátory jako **Wedos** nebo **Forpsi**. Stojí to cca 200 Kč/rok.
 2.  **Nastavení v Netlify**:
     *   Jděte do "Domain settings" svého webu na Netlify.
-    *   Klikněte na "Add custom domain" a napište tam `malipruzkumnici.cz` (nebo tu vaši).
+    *   Klikněte na "Add custom domain" a napište tam `krouzekmalipruzkumnici.cz` (nebo tu vaši).
 3.  **Propojení (DNS)**:
     *   Netlify vám ukáže "DNS records", které musíte nastavit. Obvykle to znamená vytvořit tzv. **A záznam** směřující na IP adresu Netlify (např. `75.2.60.5`).
     *   Přihlašte se tam, kde jste koupili doménu (Wedos/Forpsi), jděte do editace DNS a přidejte tento záznam.
