@@ -38,7 +38,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 input.setCustomValidity('Zadejte prosím platnou hodnotu.');
             }
         } else if (input.validity.patternMismatch) {
-            if (input.type === 'tel') {
+            if (input.type === 'email') {
+                input.setCustomValidity('Zadejte prosím platný e-mail (např. jmeno@email.cz).');
+            } else if (input.type === 'tel') {
                 input.setCustomValidity('Zadejte prosím telefon ve formátu 123 456 789 nebo +420 123 456 789.');
             } else {
                 input.setCustomValidity('Zadejte prosím hodnotu ve správném formátu.');
