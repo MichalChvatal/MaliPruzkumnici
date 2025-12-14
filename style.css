@@ -266,6 +266,10 @@ ul {
     transform: translateY(-5px);
 }
 
+.lecturer-card p {
+    text-align: justify;
+}
+
 .lecturer-img-wrapper {
     width: 150px;
     height: 150px;
