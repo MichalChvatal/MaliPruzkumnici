@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://malipruzkumnici.cz/sitemap.xml
+Sitemap: https://krouzekmalipruzkumnici.cz/sitemap.xml
