@@ -142,7 +142,6 @@ ul {
 
 .btn-primary:hover {
     background-color: var(--primary-dark);
-    transform: translateY(-2px);
 }
 
 .mobile-menu-toggle {
@@ -849,16 +848,9 @@ footer {
 
 .success-modal-content .btn-primary {
     padding: 0.75rem 2rem;
-    background-color: var(--primary-color);
-    color: var(--white);
     border: none;
     border-radius: 8px;
     font-size: 1.1rem;
-    font-weight: 600;
     cursor: pointer;
     transition: background-color 0.3s;
-}
-
-.success-modal-content .btn-primary:hover {
-    background-color: var(--primary-dark);
 }
