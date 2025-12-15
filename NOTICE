@@ -1,0 +1,15 @@
+==========================================================
+Malí průzkumníci Website Code - Copyright & Usage Notice
+==========================================================
+
+The source code (HTML, CSS, JavaScript) is provided under the MIT License.
+
+* Copyright 2025 Malí průzkumníci
+
+*** PROPRIETARY MEDIA WARNING ***
+
+The following elements are NOT covered by the MIT License and are protected by full reserved copyright:
+
+1. All files located within the 'img/' directory (images, icons, logo, video files).
+
+Permission to use, copy, modify, or redistribute the source code (HTML/CSS/JS) does NOT extend to these media files. Any derivative work that reuses this code should replace or remove files from the 'img/' directory and update branding or logos as appropriate.
