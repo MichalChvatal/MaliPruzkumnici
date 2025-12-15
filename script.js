@@ -1,3 +1,11 @@
+/* script.js */
+/*
+Copyright 2025 Malí průzkumníci
+
+Licensed under the MIT License.
+Note: This license applies only to the HTML, CSS, and JavaScript files.
+All media content (images, video, logo) are NOT covered by the MIT license and remain proprietary and copyrighted.
+*/
 document.addEventListener('DOMContentLoaded', () => {
     // CONFIGURATION: Paste your Google Apps Script Web App URL here
     // See google_sheets_setup.md for instructions
