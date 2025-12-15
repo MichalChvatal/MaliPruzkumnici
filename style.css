@@ -174,7 +174,6 @@ ul {
     height: 90vh;
     min-height: 500px;
     background-color: var(--primary-light);
-    background-image: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)), url('img/hero-bg.jpg');
     background-size: cover;
     background-position: center;
     display: flex;
@@ -193,12 +192,6 @@ ul {
     height: 100%;
     object-fit: cover;
     z-index: 0;
-    opacity: 0;
-    transition: opacity 0.5s ease;
-}
-
-.hero-video.loaded {
-  opacity: 1;
 }
 
 .hero-overlay {

@@ -152,9 +152,5 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
-
-    const video = document.querySelector('.hero-video');
-    video.addEventListener('canplay', () => {
-        video.classList.add('loaded');
-    });
 });
+
