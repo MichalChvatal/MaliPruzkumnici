@@ -9,7 +9,7 @@ All media content (images, video, logo) are NOT covered by the MIT license and r
 document.addEventListener('DOMContentLoaded', () => {
     // CONFIGURATION: Paste your Google Apps Script Web App URL here
     // See google_sheets_setup.md for instructions
-    const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbz7vbEh_TfUu8blSV-eR-1Tcba15U3skhHRVvSbHs0DZlZuiO3bFJOrh7h5Z0wdVBxp/exec';
+    const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxZh32MqLE6CXNf8fA9VqRpelvX6E4IeT5PDSTDAsmtVK4kJXNKIaBJUK_N5at68ED-/exec';
 
     // Mobile Navigation Toggle
     const toggleBtn = document.querySelector('.mobile-menu-toggle');
