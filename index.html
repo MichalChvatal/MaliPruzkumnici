@@ -55,7 +55,10 @@
 
     <main>
         <section id="hero">
-            <video autoplay muted loop playsinline class="hero-video" poster="img/hero-bg.jpg">
+            <!-- ffmpeg -i video-origin.mp4 -vf "scale=1280:-2" -r 24 -an -c:v libx264 -profile:v main -pix_fmt yuv420p -movflags +faststart -b:v 2500k video.mp4 -->
+            <!-- ffmpeg -i video-origin.mp4 -vf "scale=640:-2" -r 20 -an -c:v libx264 -profile:v baseline -pix_fmt yuv420p -movflags +faststart -b:v 800k video-mobile.mp4 -->
+            <video autoplay muted loop playsinline preload="metadata" class="hero-video" poster="img/hero-bg.jpg">
+                <source src="img/video-mobile.mp4" media="(max-width: 768px)" type="video/mp4">
                 <source src="img/video.mp4" type="video/mp4">
             </video>
             <div class="hero-overlay"></div>
